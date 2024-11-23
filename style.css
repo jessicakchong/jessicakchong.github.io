@@ -27,6 +27,10 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     transition: background-color 0.3s, color 0.3s;
+    text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%; 
+    -moz-text-size-adjust: 100%; 
+    -webkit-text-size-adjust: 100%;
 }
 
 .layout {
@@ -60,11 +64,25 @@ body {
        width: 100%;
        position: absolute;
     }
+
     .col2 {
-        margin-top: 40%;
+        margin-top: 45%;
         margin-left: 0;
         width: 100%;
+        font-size: 1vw;
     }
+
+    [data-theme="light"] {
+
+        background-color: #FAFAFA;
+    }
+
+    [data-theme="dark"] {
+    
+        background-color: #191B19;
+        color: #C0C4C4;
+    }
+
 }
 
 p {
@@ -83,7 +101,7 @@ a:hover {
 .typewriter {
     padding-top: 2%;
     margin-top: 2%;
-    width: 35%;
+    width: 31%;
 }
 
 .typewriter h1 {
@@ -185,8 +203,6 @@ a:hover {
     }  
  }
 
-
-
 .switch {
     height: 100px;
 }
@@ -238,6 +254,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+[data-theme="light"] {
+
+    background-color: #FAFAFA;
 }
 
 /*Dark mode colours*/
