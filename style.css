@@ -83,6 +83,13 @@ body {
         color: #C0C4C4;
     }
 
+    [data-theme="dark"] .footer {
+    
+        color: #C0C4C4;
+    }
+
+
+
 }
 
 p {
@@ -291,5 +298,10 @@ input:checked + .slider:before {
 }
 
 [data-theme="dark"] a:hover {
+    color: #C0C4C4;
+}
+
+[data-theme="dark"] .footer {
+    
     color: #C0C4C4;
 }
