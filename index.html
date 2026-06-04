@@ -312,20 +312,6 @@
         </main>
     </div>
 
-    <script>
-        // Dark mode toggle
-        const checkbox = document.getElementById('checkbox');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') checkbox.checked = true;
-
-        checkbox.addEventListener('change', () => {
-            const theme = checkbox.checked ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        });
-    </script>
-
     <!-- ── Floating contact button ── -->
     <button class="fab" id="fabBtn" aria-label="Contact me">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -341,7 +327,6 @@
             <form class="contact-form" id="contactForm" action="https://formsubmit.co/994a73c46f4b9934db5e9598874893b4" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://jessicakchong.github.io">
 
                 <div class="form-group">
                     <label for="fname">Name <span class="required">*</span></label>
@@ -375,52 +360,6 @@
         </div>
     </div>
 
-    <script>
-        // ── Captcha setup ──
-        let captchaAnswer = 0;
-        function newCaptcha() {
-            const a = Math.floor(Math.random() * 10) + 1;
-            const b = Math.floor(Math.random() * 10) + 1;
-            captchaAnswer = a + b;
-            document.getElementById('captcha-q').textContent = `${a} + ${b}`;
-            document.getElementById('captcha-answer').value = '';
-            document.getElementById('captcha-error').style.display = 'none';
-        }
-
-        // ── Modal open/close ──
-        const fab         = document.getElementById('fabBtn');
-        const overlay     = document.getElementById('modalOverlay');
-        const modalClose  = document.getElementById('modalClose');
-        const contactForm = document.getElementById('contactForm');
-        const formSuccess = document.getElementById('formSuccess');
-
-        fab.addEventListener('click', () => {
-            overlay.classList.add('open');
-            newCaptcha();
-        });
-
-        function closeModal() {
-            overlay.classList.remove('open');
-            contactForm.reset();
-            contactForm.style.display = '';
-            formSuccess.style.display = 'none';
-            document.getElementById('captcha-error').style.display = 'none';
-        }
-
-        modalClose.addEventListener('click', closeModal);
-        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-        // ── Form submit — validate captcha, then submit natively ──
-        contactForm.addEventListener('submit', function(e) {
-            const userAnswer = parseInt(document.getElementById('captcha-answer').value, 10);
-            if (userAnswer !== captchaAnswer) {
-                e.preventDefault();
-                document.getElementById('captcha-error').style.display = 'block';
-                newCaptcha();
-            }
-            // Captcha passed — let the form submit naturally to FormSubmit
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
